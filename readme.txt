@@ -1,1 +1,1 @@
-my name is seth and this is my code
+my name is Seth and this is my code
