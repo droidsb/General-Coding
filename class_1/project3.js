@@ -7,12 +7,12 @@ console.log('y='+y);
 
 
 	if(x<y){
-	console.log('x is less than y')
+	console.log('x<y')
 	}
 	
 	else if(x>y){
-	console.log('x is greater than y');
+	console.log('x>y');
 	}
 	else if(x===y){
-	console.log('x is equal to y')
+	console.log('x=y')
 	}
