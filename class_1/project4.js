@@ -22,10 +22,12 @@ looper=looper+1
 			var y = Math.ceil(Math.random() * 10);
 			}
 				if(x===y){
-			console.log('SUCCESS');
-			console.log('The numbers are equal');
-			console.log(x+'='+y);
-			console.log('Repeated '+looper+' times');
+			console.log(' ________________________________');
+			console.log('|SUCCESS');
+			console.log('|The numbers are equal');
+			console.log('|'+x+'='+y);
+			console.log('|Repeated '+looper+' times');
+			console.log(' --------------------------------');
 		
 		
 			}
