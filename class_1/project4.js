@@ -3,24 +3,9 @@
 	var y = Math.ceil(Math.random() * 10);
 while(x!=y){
 looper=looper+1
-	if(x>=y || x<=y){
-		if(x!=y){	
-		console.log('The numbers are not equal');
-	
-	
-			if(x<y){
-			console.log(x+'<'+y);
-			
-			var x = Math.ceil(Math.random() * 10);
-			var y = Math.ceil(Math.random() * 10);
-			}
-	
-			else if(x>y){
-			console.log(x+'>'+y);
-			
-			var x = Math.ceil(Math.random() * 10);
-			var y = Math.ceil(Math.random() * 10);
-			}
+var x = Math.ceil(Math.random() * 10);
+	var y = Math.ceil(Math.random() * 10);
+
 				if(x===y){
 			console.log(' ________________________________');
 			console.log('|SUCCESS');
@@ -35,6 +20,3 @@ looper=looper+1
 
 
 	
-	}	
-			
-}
