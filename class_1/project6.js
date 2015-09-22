@@ -5,7 +5,7 @@ var suit = 'Suit';
 var suitchanger = 1;	
 
 
-for (var cardnum = 1; cardnum<=13; cardnum=cardnum+1){
+for (var cardnum = 1; cardnum<=4; cardnum=cardnum+1){
 if(suitchanger===1){
 suit='Spades'
 
