@@ -1,8 +1,6 @@
 //this finds the miles traveled at the speed and time given
-function distance(MyArg) {
-   
-
-    if (MyArg >= 0) {
+function absolute(MyArg) {
+   if (MyArg >= 0) {
         return MyArg;
     }
     if (MyArg < 0) {
@@ -18,7 +16,7 @@ for (x = 0; x <= 10; x = x + 1) {
 
     console.log('hours:' + hours);
     console.log('speed:' + speed);
-    console.log(distance(speed*hours) + ' miles traveled');
+    console.log(absolute(speed*hours) + ' miles traveled');
     console.log('');
 
 
