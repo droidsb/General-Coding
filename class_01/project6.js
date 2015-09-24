@@ -2,23 +2,23 @@
 	//var cardnum = Math.ceil(Math.random() * 52);
 	//var cardsuit = Math.ceil(Math.random() * 4);
 var suit = 'Suit'; 
-var suitchanger = 1;	
+
 
 
 for (var cardnum = 1; cardnum<=4; cardnum=cardnum+1){
-		if(suitchanger===1){
+		if(cardnum===1){
 		suit='Spades'
 
 		}
-		if(suitchanger===2){
+		if(cardnum===2){
 		suit='Diamonds'
 
 		}
-		if(suitchanger===3){
+		if(cardnum===3){
 		suit='Clubs'
 
 		}
-		if(suitchanger===4){
+		if(cardnum===4){
 		suit='Hearts'
 
 		}
@@ -34,7 +34,7 @@ for (var cardnum = 1; cardnum<=4; cardnum=cardnum+1){
 		console.log('Jack of '+suit);
 		console.log('Queen of '+suit);
 		console.log('King of '+suit);
-		suitchanger=suitchanger+1
+		
 		}
 
 }
