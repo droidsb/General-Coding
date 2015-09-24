@@ -5,10 +5,10 @@ function distance(MyArg) {
         return;
     }
 
-    if (speed * hours > 0) {
+    if (MyArg > 0) {
         return MyArg;
     }
-    if (speed * hours < 0) {
+    if (MyArg < 0) {
         return -MyArg;
 
     }
@@ -16,7 +16,7 @@ function distance(MyArg) {
 }
 for (x = 0; x <= 10; x = x + 1) {
     var hours = Math.ceil(Math.random() * 8);
-    var speed = Math.floor(Math.random() * 160) - 90;
+    var speed = Math.floor(Math.random() * 160) - 80;
    
 
     console.log('hours:' + hours);
