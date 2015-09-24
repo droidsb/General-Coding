@@ -1,6 +1,3 @@
-
-	//var cardnum = Math.ceil(Math.random() * 52);
-	//var cardsuit = Math.ceil(Math.random() * 4);
 var suit = 'Suit'; 
 
 
