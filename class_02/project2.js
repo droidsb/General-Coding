@@ -1,4 +1,3 @@
-
 var Bob_Jones={
 	"state" : "CA",
 	"name" : "Bob Jones",
