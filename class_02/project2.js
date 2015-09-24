@@ -29,9 +29,9 @@ var God={
 
 
 
-//Change this __V__ to get their addresses by type their first and last name
-  var Add = Bob_Jones;
-   //Example:Bob_Jones
+
+
+
   console.log('List:Bob_Jones, Chuck_Noris, God');
   console.log('');
  
@@ -51,7 +51,8 @@ function PrintAddress(God){
 	console.log(God['city']+' '+God['state']+'	'+God['zip_code']);
 }*/
 
-  
-PrintAddress(Add);
+//Change this __V__ to get their addresses by type their first and last name
+  PrintAddress(Chuck_Noris);
+ //Example:Bob_Jones
 
 
