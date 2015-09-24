@@ -1,7 +1,7 @@
 //this finds the miles traveled at the speed and time given
-function distance(MyArg,MyArgH) {
-    if (MyArgH < 1) {
-        console.log('The hours can not be below or equal to zero');
+function distance(MyArg) {
+    if (MyArg < 1) {
+        console.log('The hours or speed can not be below or equal to zero');
         return;
     }
 
@@ -16,7 +16,7 @@ function distance(MyArg,MyArgH) {
 }
 for (x = 0; x <= 10; x = x + 1) {
     var hours = Math.ceil(Math.random() * 8);
-    var speed = Math.floor(Math.random() * 160) - 80;
+    var speed = 0;//Math.floor(Math.random() * 160) - 80;
    
 
     console.log('hours:' + hours);
