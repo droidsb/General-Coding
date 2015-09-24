@@ -28,14 +28,19 @@ var God={
 }*/
 
 
-//console.log(Object.keys(Dictionary));
 
-function PrintAddress(Bob_Jones){
-	console.log(Bob_Jones['name']);
-	console.log(Bob_Jones['street']);
-	console.log(Bob_Jones['city']+' '+Bob_Jones['state']+'	'+Bob_Jones['zip_code']);
+//Change this __V__ to get their addresses by type their first and last name
+  var Add = Bob_Jones;
+   //Example:Bob_Jones
+  console.log('List:Bob_Jones, Chuck_Noris, God');
+  console.log('');
+ 
+function PrintAddress(Add){
+	console.log(Add['name']);
+	console.log(Add['street']);
+	console.log(Add['city']+' '+Add['state']+'	'+Add['zip_code']);
 }
-function PrintAddress(Chuck_Noris){
+/*function PrintAddress(Chuck_Noris){
 	console.log(Chuck_Noris['name']);
 	console.log(Chuck_Noris['street']);
 	console.log(Chuck_Noris['city']+' '+Chuck_Noris['state']+'	'+Chuck_Noris['zip_code']);
@@ -44,9 +49,9 @@ function PrintAddress(God){
 	console.log(God['name']);
 	console.log(God['street']);
 	console.log(God['city']+' '+God['state']+'	'+God['zip_code']);
-}
+}*/
 
-  //Change this __V__ to get their addresses by type their first and last name
-PrintAddress(Bob_Jones);
-//Example:Bob_Jones
+  
+PrintAddress(Add);
+
 
