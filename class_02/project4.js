@@ -2,14 +2,15 @@ var score = 0;
 for (x = 0; x <= 1; x = x + 1) {
     
 var deck = [ ];
-
+//this makes an array from 0-51
 for (var i = 0; i < 52; i = i + 1) {
    deck.push(i);
 }
 
 console.log(deck);
         var card = Math.floor(Math.random() * 52);
-
+		//this choses the suit of the card, at random of course. Pretty sure
+		//we still need this
         function SuitOf(card) {
             var suit = card % 4;
 
@@ -26,7 +27,7 @@ console.log(deck);
                 return "Spades";
             }
         }
-
+        //this is the actually cards, we need to change this to fit the arrary 'deck'
         function ValueOf(card) {
             var value = card % 13;
 
@@ -42,7 +43,7 @@ console.log(deck);
             return value + 1; //number 2 through 10
 
         }
-
+        //this picks the card out of random, we may not need this
         function BlackJackValue(card) {
             var value = card % 13;
             console.log(ValueOf(card) + ' of ' + SuitOf(card));
@@ -59,6 +60,7 @@ console.log(deck);
                 score = score + 10;
             }
       }
+      //this function randomizes the array 'deck' so that it is no longer 1-50 
       function shuffleArray(deck) {
     for (var i = deck.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
