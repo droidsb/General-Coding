@@ -15,7 +15,7 @@ for (x = 0; x <= 10; x = x + 1) {
    
 
     console.log('hours:' + hours);
-    console.log('speed:' + speed);
+    console.log('MPH:' + speed);
     console.log(absolute(speed*hours) + ' miles traveled');
     console.log('');
 
