@@ -1,89 +1,96 @@
 function d6() {
-    var l= Math.ceil(Math.random() * 6);
+   return Math.floor(Math.random() * 6+1);
     
 }
 
 
 
-function d6(num1, num2, num3, num4, num5, num6) {
-    var aster1 = '';
-    var aster2 = '';
-    var aster3 = '';
-    var aster4 = '';
-    var aster5 = '';
-    var aster6 = '';
-    for (x = 0; x < 1000; x = x + 1) {
-        var RN=Math.ceil(Math.random() * 6);
+function bar(label, value){
+	var result= '';
 
-        if (RN === 1) {
-            num1 = num1 + 1;
-            //aster1 = aster1 + '*';
-        } else if (RN === 2) {
-            num2 = num2 + 1;
-            //aster2 = aster2 + '*';
-        } else if (RN === 3) {
-            num3 = num3 + 1;
-            //aster3 = aster3 + '*';
-        } else if (RN === 4) {
-            num4 = num4 + 1;
-            //aster4 = aster4 + '*';
-        } else if (RN === 5) {
-            num5 = num5 + 1;
-            //aster5 = aster5 + '*';
-        } else if (RN=== 6) {
-            num6 = num6 + 1;
-            //aster6 = aster6 + '*';
-        }
-    }
-    var i = 0;
-    var i2 = 0;
-    var i3 = 0;
-    var i4 = 0;
-    var i5 = 0;
-    var i6 = 0;
-    while (i < num1 / 2) {
-        aster1 = aster1 + '*';
-        i = i + 1;
-    }
-    while (i2 < num1 / 2) {
-        aster2 = aster2 + '*';
-        i2 = i2 + 1;
-    }
-    while (i3 < num1 / 2) {
-        aster3 = aster3 + '*';
-        i3 = i3 + 1;
-    }
-    while (i4 < num1 / 2) {
-        aster4 = aster4 + '*';
-        i4 = i4 + 1;
-    }
-    while (i5 < num1 / 2) {
-        aster5 = aster5 + '*';
-        i5 = i5 + 1;
-    }
-    while (i6 < num1 / 2) {
-        aster6 = aster6 + '*';
-        i6 = i6 + 1;
-    }
+	result += label +": ";
 
-    console.log(num1, aster1);
-    console.log(num2, aster2);
-    console.log(num3, aster3);
-    console.log(num4, aster4);
-    console.log(num5, aster5);
-    console.log(num6, aster6);
-    sum = num1 + num2 + num3 + num4 + num5 + num6;
+	if (value<0){
+		value=0;
+	}
 
-    
+	if (value>1){
+		value=1;
+	}
+
+	var count = 50 * value;
+
+	for(var i = 1; i < count; i = i +1){
+		result += '*';
+	}
+console.log(result);
+}
+
+function binsum(binArray){
+	var result = 0;
+	
+	var count = binArray.length
+	
+	for (var i = 0; i < count; i = i + 1){
+	result += binArray[i];
+	}
+		
+		
+	return result;
+}
+
+
+function histogram(ArrayResult, myLabels){
+	var total = binsum(ArrayResult);
+
+	for (var i = 0; i < ArrayResult.length; i = i + 1){
+	
+		var percentage = ArrayResult[i] / total;
+	
+		bar(myLabels[i], percentage);
+
+	}
 
 }
 
-function bar(label, value) {
-    var x = 0;
+function d6_histogram(){
+	var result = [0,0,0,0,0,0];
+	var labels = [1,2,3,4,5,6];
 
-    value = value / 100;
-    console.log(value);
 
+	for (var i = 0; i < 1000; i = i + 1){
+	
+		var n = d6();
+	
+		result[n - 1] = result[n - 1] + 1;
+	}
+
+	histogram(result, labels)
 }
-bar("foo", d6);
-d6(0, 0, 0, 0, 0, 0);
+
+
+
+function d12_histogram(){
+	var result = [0,0,0,0,0,0,0,0,0,0,0];
+	var labels = [2,3,4,5,6,7,8,9,10,11,12];
+
+	for (var i = 0; i < 1000; i = i + 1){
+	
+		var n = d6()+ d6();
+	
+		result[n - 2] = result[n - 2] + 1;
+	}
+
+	histogram(result, labels)
+}
+
+
+
+
+d6_histogram();
+console.log();
+d12_histogram();
+
+
+
+
