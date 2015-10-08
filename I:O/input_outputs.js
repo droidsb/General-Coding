@@ -20,9 +20,18 @@ function QF3() {
     function how() {
         var Q3 = readline.question("How does it make you feel? ");
         var pre = 'My prescription for feeling ' + Q3 + ' is, ';
-        console.log('Hmmmm...');
+        setTimeout(function(){console.log('Hmmmm...');},1000);
         if (Q3 === 'sad' || Q3 === 'Sad' || Q3 === 'Very sad' || Q3 === 'very sad') {
             pre += 'go hang out with some friends or enjoy a good joke.'
+        } 
+        else if (Q3 === 'happy' || Q3 === 'Happy' || Q3 === 'very happy' || Q3 === 'Very happy' || Q3 === 'normal' || Q3 === 'Normal') {
+            var Q4 = readline.question("If you are feeling "+Q3+", then why did you come to me? ");
+            
+            if(Q4==="idk" || Q4==="I don't know" || Q4==="i don't know" || Q4==="I dont know" || Q4==="i dont know" || Q4 != ''){
+            setTimeout(function(){console.log("Then quit wasting my time! I have other patients to take care of!");}, 2000);
+            
+            return;
+            }
         } 
         else if (Q3 === 'Hungry' || Q3 === 'hungry' || Q3 === 'Very hungry' || Q3 === 'very hungry') {
             pre += 'to go to the store and buy some more food.';

@@ -8,16 +8,22 @@ if(guessNum === MyRN){
 console.log("CORRECT! The number was "+MyRN);
 }
 
-if(guessNum != MyRN){
+if(guessNum < MyRN){
 console.log("Incorrect");
+console.log("Your answer is too low");
+guessmain();
+}
+else if(guessNum > MyRN){
+console.log("Incorrect");
+console.log("Your answer is too high");
 guessmain();
 }
 
 function guessmain(){
 	var guessmainvar = readline.question("try again ");
 	var guessNum = Number(guessmainvar)
-	if(x===0){
-	console.log("You ran out of guesses!");
+	if(x===0 && guessNum != MyRN){
+	console.log("You ran out of guesses! The answer was "+MyRN);
 	setTimeout(function(){}, 1000);
 	console.log("Quitting game...");
 	setTimeout(function(){}, 2000);
