@@ -1,1 +1,0 @@
-This is Seth’s Awesome coding folder for all of his awesome projects that are super cool!
