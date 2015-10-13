@@ -10,22 +10,30 @@ function coins(n) {
     if (n < 0) {
         console.log("Error! Can't not have negative numbers!");
         return;
-    } else if (n >= 100) {
+    } 
+     else if (n > 100) {
+        console.log("Error! Can't not have a number greater then 100!");
+        return;
+    } 
+    else if (n >= 100) {
         coinQ = +4;
         coinQvalue = +100;
         n = n - 100;
 
-    } else if (n >= 75) {
+    } 
+    else if (n >= 75) {
         coinQ = +3;
         coinQvalue = +75;
         n = n - 75;
 
-    } else if (n >= 50) {
+    } 
+    else if (n >= 50) {
         coinQ = +2;
         coinQvalue = +50;
         n = n - 50;
 
-    } else if (n >= 25) {
+    } 
+    else if (n >= 25) {
         coinQ = +1;
         coinQvalue = +25;
     	n = n - 25;
@@ -62,4 +70,4 @@ function coins(n) {
     console.log(coinQ + " quarter(s), " + coinD + " dime(s), " + coinN + " nickel(s), " + coinP + " penny(ies)");
 }
 
-coins(97);
+coins(100);
