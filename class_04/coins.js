@@ -31,7 +31,7 @@ function coins(n) {
     	n = n - 25;
     }
     //dimes
-    if (n <= 100 && n > 0) {
+    if (n <= 100 && n > 10) {
         while (coinDvalue <= n) {
             coinD = coinD + 1;
             coinDvalue = coinDvalue + 10;
@@ -40,7 +40,7 @@ function coins(n) {
 		console.log(n);
     } 
     //nickels
-    if (n <= 100 && n > 0) {
+    if (n <= 100 && n > 5) {
         while (coinNvalue < n + 1) {
             coinN = coinN + 1;
             coinNvalue = coinNvalue + 5;
@@ -50,7 +50,7 @@ function coins(n) {
     }
     //pennies
    if (n <= 100 && n > 0) {
-        while (coinPvalue < n + 1) {
+        while (n>0) {
             coinP = coinP + 1;
             coinPvalue = coinPvalue + 1;
             n = n - 1;
@@ -62,4 +62,4 @@ function coins(n) {
     console.log(coinQ + " quarter(s), " + coinD + " dime(s), " + coinN + " nickel(s), " + coinP + " penny(ies)");
 }
 
-coins(95);
+coins(97);
