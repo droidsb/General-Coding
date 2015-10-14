@@ -2,6 +2,7 @@ function Binconvert(Binbit){
 
 BinString="";
 	
+	if (Binbit<0){
 	console.log('no negative number support yet');
 	return;
 	}
