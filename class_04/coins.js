@@ -45,7 +45,7 @@ function coins(n) {
             coinDvalue = coinDvalue + 10;
             n = n - 10;
         }
-		console.log(n);
+		
     } 
     //nickels
     if (n <= 100 && n > 5) {
@@ -54,7 +54,7 @@ function coins(n) {
             coinNvalue = coinNvalue + 5;
             n = n - 5;
         }
-		console.log(n);
+		
     }
     //pennies
    if (n <= 100 && n > 0) {
@@ -63,7 +63,7 @@ function coins(n) {
             coinPvalue = coinPvalue + 1;
             n = n - 1;
         }
-		console.log(n);
+		
     }
 
 
