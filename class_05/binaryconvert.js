@@ -12,13 +12,9 @@ BinString="";
 		BinString +="1";
 		Binbit-=i;
 		}
-		
-		else if (Binbit<i) {
-		BinString +="0";
-		
-		}
+		else{BinString +="0";}
 	}
 	console.log(BinString);
 }
 
-Binconvert(198);
+Binconvert(231);
