@@ -1,7 +1,10 @@
 //var readline = require("readline-sync");
 //var hexnumI = readline.question("Type a decimal to convert to hexadecimal ");
 function hexabin(dec){
-
+if(dec>65535){
+console.log("No numbers bigger than 65,535 are supported");
+return;
+}
 
 
 var S1 = Math.floor(dec%16);
