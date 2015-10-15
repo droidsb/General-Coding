@@ -1,14 +1,22 @@
 var readline = require("readline-sync");
 var hexnumI = readline.question("Type a decimal to convert to hexadecimal ");
-function hexabin(dec){
-if(dec>65535){
-console.log("No numbers bigger than 65,535 are supported");
-return;
-}
+var N = 0;
 
-var S = [Math.floor(dec%16), Math.floor((dec/16)%16), Math.floor((dec/16/16)%16), Math.floor((dec/16/16/16)%16)]
-for (i=0; i<=3; i++){
-if (S[i]===10){
+function hexabin(dec){
+function baselog(x){
+return Math.log(x)/Math.log(16);
+}
+var hexDigitCount = Math.ceil(baselog(dec));
+
+console.log(hexDigitCount);
+
+
+var S = []
+while(N<hexDigitCount){
+S.push(dec/Math.pow(16, N) %16)
+
+}
+/*if (S[i]===10){
 S[i]="A"
 }
 if (S[i]===11){
@@ -26,13 +34,11 @@ S[i]="E"
 if (S[i]===15){
 S[i]="F"
 
-}
-}
+
+}*/
 console.log(S);
-console.log(S[3]+""+S[2]+""+S[1]+""+S[0]);
+console.log(S[5]+""+S[4]+""+S[3]+""+S[2]+""+S[1]+""+S[0]);
 
 }
-//var dec = Number(hexnumI);
-//for (i=0; i<=180; i++){
+
 hexabin(hexnumI);
-//}
