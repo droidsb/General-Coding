@@ -8,13 +8,14 @@ return Math.log(x)/Math.log(16);
 }
 var hexDigitCount = Math.ceil(baselog(dec));
 
-console.log(hexDigitCount);
+console.log(hexDigitCount+" hexDigitCount");
 
 
 var S = []
-while(N<hexDigitCount){
-S.push(dec/Math.pow(16, N) %16)
-
+for (N = 0; N<=hexDigitCount; N++){
+S.push(Math.floor(dec/Math.pow(16, N)%16));
+//console.log(N+" N");
+console.log(S.reverse())
 }
 /*if (S[i]===10){
 S[i]="A"
