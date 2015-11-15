@@ -4,31 +4,65 @@
 var engine = function(){};
 
 /**************************************************************************************/
-var readline = require("readline-sync");
-var H_S = readline.question("To hit press 'h' to stay press 's' ");
+//highest hit number
+
+var hh = 0;
+
+//AI name
+
+var AIN = "AI";
+
+//will they hit above their hit number just to win?
+
+var RW = false;
+
+//enemy score that AI is willing hit above max hit number
+
+var ESH = 0;
+
 var hit=false;
 var stay=false;
-if(H_S==="h"){
+var score=0;
+var EScore=0;
+var gamemode="In Progress";
+
+
+if(score>=hh){
+	hit=false;
+	stay=true;
+}
+else if(score<hh){
 	hit=true;
 }
 
-if(H_S==="s"){
-	stay=true;
+if(HW===true && EScore>=ESH && score<EScore){
+	hit=true;
+	stay=false;
+} 
+
+if(score===21){
+	hit=false;
+	stay=false;
 }
 
+// Hit or Stay
+/**************************************************************************************/
 if(hit===true){
-	console.log("You got a card!");
+	console.log(AIN+" chose to hit!");
 }
 
 if(stay===true){
-	console.log("Awwww... You didn't get a card, how boring");
+	console.log(AIN+" chose to stay!");
 }
+/**************************************************************************************/
 
+if(score===21){
+	gamemode="finished";
+}
+if(gamemode==="finished" && score===21){
 
-
-
-
-
+console.log(AIN+" won the game!");
+}
 
 /**************************************************************************************/
 // module suffix
