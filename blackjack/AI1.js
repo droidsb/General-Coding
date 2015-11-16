@@ -6,7 +6,7 @@ var engine = function(){};
 /**************************************************************************************/
 //highest hit number
 
-var hh = 0;
+var hh = 21;
 
 //AI name
 
@@ -20,6 +20,25 @@ var RW = false;
 
 var ESH = 0;
 
+//will they randomly hit or stay?
+
+var RHS = false;
+
+//always hit?
+
+var AH = false;
+
+//always stay?
+
+var AS = false;
+
+var HoSR = Math.ceil(Math.random() * 2);
+
+//hit when enemy is above certain number
+
+var HitAboveEN = false;
+var HitNum = 0;
+
 var hit=false;
 var stay=false;
 var score=0;
@@ -27,18 +46,45 @@ var EScore=0;
 var gamemode="In Progress";
 
 
+if(RHS===true && HoSR===1 && score<=hh){
+	hit=true;
+}
+if(RHS===true && HoSR===2 && score<=hh){
+	stay=true;
+} 
+else if(score>=hh){
+	hit=false;
+	stay=true;
+}
+
+if(RHS===false){
 if(score>=hh){
 	hit=false;
 	stay=true;
 }
-else if(score<hh){
+else if(score<=hh){
 	hit=true;
 }
+}
 
-if(HW===true && EScore>=ESH && score<EScore){
+if(RW===true && EScore>=ESH && score<EScore){
 	hit=true;
 	stay=false;
 } 
+else if(AH===true){
+hit=true;
+stay=false;
+}
+else if(AS===true){
+hit=false;
+stay=true;
+}
+if(HitAboveEN===true && EScore>HitNum){
+	hit=true;
+	stay=false;
+
+}
+
 
 if(score===21){
 	hit=false;
