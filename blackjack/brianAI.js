@@ -1,117 +1,115 @@
 /**************************************************************************************/
-
 // module prefix
-var engine = function(){};
+var BrianAI = function() {};
 
 /**************************************************************************************/
-//highest hit number
+BrianAI.prototype.BA = function(score) {
+        //highest hit number
 
-var hh = 18;
+        var hh = 18;
 
-//AI name
+        //AI name
 
-var AIN = "Brian";
+        var AIN = "Brian";
 
-//will they hit above their hit number just to win?
+        //will they hit above their hit number just to win?
 
-var RW = true;
+        var RW = true;
 
-//enemy score that AI is willing hit above max hit number
+        //enemy score that AI is willing hit above max hit number
 
-var ESH = 20;
+        var ESH = 20;
 
-//will they randomly hit or stay?
+        //will they randomly hit or stay?
 
-var RHS = false;
+        var RHS = false;
 
-//always hit?
+        //always hit?
 
-var AH = false;
+        var AH = false;
 
-//always stay?
+        //always stay?
 
-var AS = false;
+        var AS = false;
 
-var HoSR = Math.ceil(Math.random() * 2);
+        var HoSR = Math.ceil(Math.random() * 2);
 
-//hit when enemy is above certain number
+        //hit when enemy is above certain number
 
-var HitAboveEN = false;
-var HitNum = 0;
+        var HitAboveEN = false;
+        var HitNum = 0;
 
-var hit=false;
-var stay=false;
-var score=0;
-var EScore=0;
-var gamemode="In Progress";
-
-
-if(RHS===true && HoSR===1 && score<=hh){
-	hit=true;
-}
-if(RHS===true && HoSR===2 && score<=hh){
-	stay=true;
-} 
-else if(score>=hh){
-	hit=false;
-	stay=true;
-}
-
-if(RHS===false){
-if(score>=hh){
-	hit=false;
-	stay=true;
-}
-else if(score<=hh){
-	hit=true;
-}
-}
-
-if(RW===true && EScore>=ESH && score<EScore){
-	hit=true;
-	stay=false;
-} 
-else if(AH===true){
-hit=true;
-stay=false;
-}
-else if(AS===true){
-hit=false;
-stay=true;
-}
-if(HitAboveEN===true && EScore>HitNum){
-	hit=true;
-	stay=false;
-
-}
+        var hit = false;
+        var stay = false;
+        //may still need this
+        //var score = 0;
+        
+        var EScore = 0;
+        var gamemode = "In Progress";
 
 
-if(score===21){
-	hit=false;
-	stay=false;
-}
+        if (RHS === true && HoSR === 1 && score <= hh) {
+            hit = true;
+        }
+        if (RHS === true && HoSR === 2 && score <= hh) {
+            stay = true;
+        } else if (score >= hh) {
+            hit = false;
+            stay = true;
+        }
 
-// Hit or Stay
-/**************************************************************************************/
-if(hit===true){
-	console.log(AIN+" chose to hit!");
-}
+        if (RHS === false) {
+            if (score >= hh) {
+                hit = false;
+                stay = true;
+            } else if (score <= hh) {
+                hit = true;
+            }
+        }
 
-if(stay===true){
-	console.log(AIN+" chose to stay!");
-}
-/**************************************************************************************/
+        if (RW === true && EScore >= ESH && score < EScore) {
+            hit = true;
+            stay = false;
+        } else if (AH === true) {
+            hit = true;
+            stay = false;
+        } else if (AS === true) {
+            hit = false;
+            stay = true;
+        }
+        if (HitAboveEN === true && EScore > HitNum) {
+            hit = true;
+            stay = false;
 
-if(score===21){
-	gamemode="finished";
-}
-if(gamemode==="finished" && score===21){
+        }
 
-console.log(AIN+" won the game!");
-}
 
-/**************************************************************************************/
-// module suffix
-module.exports = new engine();
+        if (score === 21) {
+            hit = false;
+            stay = false;
+        }
+
+        // Hit or Stay
+        /**************************************************************************************/
+        if (hit === true) {
+            console.log(AIN + " chose to hit!");
+        }
+
+        if (stay === true) {
+            console.log(AIN + " chose to stay!");
+        }
+        /**************************************************************************************/
+
+        if (score === 21) {
+            gamemode = "finished";
+        }
+        if (gamemode === "finished" && score === 21) {
+
+            console.log(AIN + " won the game!");
+        }
+	}
+    /**************************************************************************************/
+    // module suffix
+module.exports = new BrianAI();
 
 /**************************************************************************************/

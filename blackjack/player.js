@@ -1,9 +1,10 @@
 /**************************************************************************************/
 
 // module prefix
-var engine = function(){};
+var player = function(){};
 
 /**************************************************************************************/
+player.prototype.PlayerChoice = function() {
 var readline = require("readline-sync");
 var H_S = readline.question("To hit press 'h' to stay press 's' ");
 var hit=false;
@@ -28,10 +29,10 @@ if(stay===true){
 
 
 
-
+}
 
 /**************************************************************************************/
 // module suffix
-module.exports = new engine();
+module.exports = new player();
 
 /**************************************************************************************/
