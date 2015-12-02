@@ -10,6 +10,7 @@ var _HandArray = [];
 var _PlayerCount = 0;
 var _CurrentPlayer = 0;
 
+
 /**************************************************************************************/
 // private routines
 

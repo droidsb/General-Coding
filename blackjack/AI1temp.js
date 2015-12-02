@@ -1,10 +1,10 @@
 /**************************************************************************************/
 // module prefix
-var AI = function() {};
+var player = function() {};
 
 /**************************************************************************************/
-AI.prototype.BA = function(score) {
-        //highest hit number
+player.prototype.PlayerChoice = function(CHV) {
+    //highest hit number
 
         var hh = 21;
 
@@ -48,68 +48,44 @@ AI.prototype.BA = function(score) {
         var gamemode = "In Progress";
 
 
-        if (RHS === true && HoSR === 1 && score <= hh) {
+        if (RHS === true && HoSR === 1 && CHV <= hh) {
             hit = true;
         }
-        if (RHS === true && HoSR === 2 && score <= hh) {
+        if (RHS === true && HoSR === 2 && CHV <= hh) {
             stay = true;
-        } else if (score >= hh) {
-            hit = false;
-            stay = true;
+        } else if (CHV >= hh) {
+            return "stay";
         }
 
         if (RHS === false) {
-            if (score >= hh) {
-                hit = false;
-                stay = true;
-            } else if (score <= hh) {
-                hit = true;
+            if (CHV >= hh) {
+				return "stay";
+            } else if (CHV <= hh) {
+                return "hit";
             }
         }
 
-        if (RW === true && EScore >= ESH && score < EScore) {
-            hit = true;
-            stay = false;
+        if (RW === true && EScore >= ESH && CHV < EScore) {
+            return "hit";
+            
         } else if (AH === true) {
-            hit = true;
-            stay = false;
+			return "hit";
+            
         } else if (AS === true) {
-            hit = false;
-            stay = true;
+           return "stay";
         }
         if (HitAboveEN === true && EScore > HitNum) {
-            hit = true;
-            stay = false;
-
+            return "hit";
         }
 
 
         if (score === 21) {
-            hit = false;
-            stay = false;
+            return "stay";
         }
-
-        // Hit or Stay
-        /**************************************************************************************/
-        if (hit === true) {
-            console.log(AIN + " chose to hit!");
-        }
-
-        if (stay === true) {
-            console.log(AIN + " chose to stay!");
-        }
-        /**************************************************************************************/
-
-        if (score === 21) {
-            gamemode = "finished";
-        }
-        if (gamemode === "finished" && score === 21) {
-
-            console.log(AIN + " won the game!");
-        }
-	}
+}
+        
     /**************************************************************************************/
     // module suffix
-module.exports = new AI();
+module.exports = new player();
 
 /**************************************************************************************/
