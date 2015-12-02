@@ -6,12 +6,8 @@ var player = function(){};
 
 /**************************************************************************************/
 player.prototype.PlayerChoice = function(CHV) {
-	if(CHV<18){
-		return "hit";
-	}
-	return "stay";
+	return "hit";
 }
-
 /**************************************************************************************/
 // module suffix
 module.exports = new player();

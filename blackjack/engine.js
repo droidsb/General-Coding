@@ -14,7 +14,12 @@ var _CurrentPlayer = 0;
 // private routines
 
 /**************************************************************************************/
+function sleep(miliseconds) {
+           var currentTime = new Date().getTime();
 
+           while (currentTime + miliseconds >= new Date().getTime()) {
+           }
+       }
 function _shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -85,7 +90,7 @@ var _prettyHand = function (array) {
 	for(var i = 0; i<array.length; i++){
 	 result.push(_prettyCard(array[i]));
 	}
-	return result;
+	return result.join(", ");
 }
 /**************************************************************************************/
 // pubic routines
@@ -120,12 +125,26 @@ engine.prototype.done = function(){
 }
 engine.prototype.action = function(ActionS){
 	if(ActionS === "hit"){
-		console.log("You got a card!");
-		this.ch().push(_topCard(_deck));
+		var card = _topCard(_deck);
+		console.log("you got a "+_prettyCard(card));  
+		this.ch().push(card);
+		if(this.chv()>=21){
+			console.log("You busted! Turn over...");
+			sleep(6000);
+			++_CurrentPlayer;
+			return "";
+			}
+		
+		console.log("You got a card! It is still your turn");
+		sleep(6000);
+		return "";
 	}
 	else if(ActionS === "stay"){
-		console.log("Awwww... You didn't get a card, how boring");
+		console.log("No card has been obtained");
+		sleep(6000);
 		++_CurrentPlayer;
+		return "";
+		
 	}
 }
 engine.prototype.chv = function(){
