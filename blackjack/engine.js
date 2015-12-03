@@ -125,16 +125,28 @@ engine.prototype.done = function(){
 	return _CurrentPlayer===_PlayerCount;
 }
 engine.prototype.action = function(ActionS){
+	if(ActionS === "won"){
+			console.log("YOU GOT "+this.chv()+"! YOU WON THE GAME!");
+			//sleep(6000);
+			++_CurrentPlayer;
+			return "";
+		}
 	if(ActionS === "hit"){
 		var card = _topCard(_deck);
 		console.log("you got a "+_prettyCard(card));  
 		this.ch().push(card);
-		if(this.chv()>=21){
-			console.log("You busted! Turn over...");
+		if(this.chv()===21){
+			console.log("YOU GOT "+this.chv()+"! YOU WON THE GAME!");
 			//sleep(6000);
 			++_CurrentPlayer;
 			return "";
 			}
+		if(this.chv()>21){
+			console.log("You busted! Turn over...");
+			//sleep(6000);
+			++_CurrentPlayer;
+			return "";
+		}
 		
 		console.log("You got a card! It is still your turn");
 		//sleep(6000);

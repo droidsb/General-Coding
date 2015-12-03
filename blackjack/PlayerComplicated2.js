@@ -11,6 +11,9 @@ var HES= Math.max.apply(Math, EScore);
 var HTW = true;
 //hit below number?
 var HBN = false;
+if(CHV===21){
+		return "won";
+	}
 if(HES>CHV && HTW===true){
  	return "hit";
 }	

@@ -9,6 +9,9 @@ player.prototype.PlayerChoice = function(CHV,EScore) {
 var HES= Math.max.apply(Math, EScore);
 //hit just to win?
 var HTW = true;
+if(CHV===21){
+		return "won";
+	}
 if(HES>CHV && HTW===true){
  	return "hit";
 }	
