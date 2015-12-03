@@ -25,6 +25,7 @@ var x = 0;
 var y = 0;
 var BothD = false;
 
+var WinnerArray = [];
 var PlayerArray = [];
 var DisplayPlayerArray = [];
 
@@ -139,6 +140,9 @@ while (!engine.done()) {
     console.log("Their hand value is " + engine.chv());
     sleep(500);
     CHVFA = engine.chv();
+    if(CHVFA === 21){
+    	WinnerArray.push("Player "+engine.cp()+": got 21!");
+    }
     var Choice = PlayerArray[engine.cp()].PlayerChoice(engine.chv(), CHVArray);
     sleep(500);
     var outcome = engine.action(Choice);
@@ -152,4 +156,5 @@ while (!engine.done()) {
 
 console.log(DisplayPlayerArray);
 console.log("The game has ended!");
-console.log(CHVArray);
+//console.log(CHVArray);
+console.log(WinnerArray);
