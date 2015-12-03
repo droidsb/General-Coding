@@ -131,18 +131,18 @@ engine.prototype.action = function(ActionS){
 		this.ch().push(card);
 		if(this.chv()>=21){
 			console.log("You busted! Turn over...");
-			sleep(6000);
+			//sleep(6000);
 			++_CurrentPlayer;
 			return "";
 			}
 		
 		console.log("You got a card! It is still your turn");
-		sleep(6000);
+		//sleep(6000);
 		return "";
 	}
 	else if(ActionS === "stay"){
 		console.log("No card has been obtained");
-		sleep(6000);
+		//sleep(6000);
 		++_CurrentPlayer;
 		return "";
 		
