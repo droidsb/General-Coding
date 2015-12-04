@@ -1,7 +1,6 @@
 /**************************************************************************************/
-
 // module prefix
-var engine = function(){};
+var engine = function() {};
 
 /**************************************************************************************/
 // module variables
@@ -16,11 +15,11 @@ var _CurrentPlayer = 0;
 
 /**************************************************************************************/
 function sleep(miliseconds) {
-           var currentTime = new Date().getTime();
+    var currentTime = new Date().getTime();
 
-           while (currentTime + miliseconds >= new Date().getTime()) {
-           }
-       }
+    while (currentTime + miliseconds >= new Date().getTime()) {}
+}
+
 function _shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -31,167 +30,164 @@ function _shuffleArray(array) {
 };
 
 
-var _topCard = function(array){
-	return array.pop();
+var _topCard = function(array) {
+    return array.pop();
 }
 
 
-var _newHand = function(array){
-	var result = [];
-	
-	result.push(_topCard(array));
-	result.push(_topCard(array));
-	
-	return result;
-};	
+var _newHand = function(array) {
+    var result = [];
 
-var _prettyCard = function (card){
-var result = '';
+    result.push(_topCard(array));
+    result.push(_topCard(array));
 
-switch (card % 13){
-case 0:
-	result += "Ace"
-	break;
-case 10:
-	result += "Jack"
-	break;
-case 11:
-	result += "Queen"
-	break;
-case 12:
-	result += "King"
-	break;
-default:
-	result += (card % 13 + 1);
-	break;
-}
-
-result += " of ";
-	
-	switch (card % 4){
-		case 0:
-			result += "Diamonds"
-			break;
-		case 1:
-			result += "Clubs"
-			break;
-		case 2:
-			result += "Spades"
-			break;
-		case 3:
-			result += "Hearts"
-			break;
-	}
-	return result;
+    return result;
 };
 
-var _prettyHand = function (array) {
-	var result = [];
-	
-	for(var i = 0; i<array.length; i++){
-	 result.push(_prettyCard(array[i]));
-	}
-	return result.join(", ");
-}
-/**************************************************************************************/
-// pubic routines
+var _prettyCard = function(card) {
+    var result = '';
 
-/**************************************************************************************/
-engine.prototype.init = function(PlayerAmount){
-	
+    switch (card % 13) {
+        case 0:
+            result += "Ace"
+            break;
+        case 10:
+            result += "Jack"
+            break;
+        case 11:
+            result += "Queen"
+            break;
+        case 12:
+            result += "King"
+            break;
+        default:
+            result += (card % 13 + 1);
+            break;
+    }
 
+    result += " of ";
 
-	for(var i=0; i <52; i++){
-		_deck.push(i);
-	}
-	
-	_shuffleArray(_deck);
-	
-	for(var i=0; i<PlayerAmount; i++){
-		_HandArray.push(_newHand(_deck));
-		
-	}
-	_PlayerCount = PlayerAmount;
-	console.log(_HandArray);
+    switch (card % 4) {
+        case 0:
+            result += "Diamonds"
+            break;
+        case 1:
+            result += "Clubs"
+            break;
+        case 2:
+            result += "Spades"
+            break;
+        case 3:
+            result += "Hearts"
+            break;
+    }
+    return result;
 };
 
-engine.prototype.cp = function(){
-	return _CurrentPlayer;
-}
-engine.prototype.ch = function(){
-	return _HandArray[_CurrentPlayer];
-}
-engine.prototype.done = function(){
-	return _CurrentPlayer===_PlayerCount;
-}
-engine.prototype.action = function(ActionS, WCHV, CHVG){
-	if(ActionS === "won"){
-			console.log("YOU GOT "+this.chv()+"! YOU WON THE GAME!");
-			//sleep(6000);
-			WCHV.push("Player "+this.cp()+": got 21!");
-			CHVG.push(this.chv());
-			++_CurrentPlayer;
-			return "";
-		}
-	if(ActionS === "hit"){
-		var card = _topCard(_deck);
-		console.log("you got a "+_prettyCard(card));  
-		this.ch().push(card);
-		if(this.chv()===21){
-			console.log("YOU GOT "+this.chv()+"! YOU WON THE GAME!");
-			WCHV.push("Player "+this.cp()+": got 21!");
-			//sleep(6000);
-			CHVG.push(this.chv());
-			++_CurrentPlayer;
-			return "";
-			}
-		if(this.chv()>21){
-			console.log("You busted! Turn over...");
-			//sleep(6000);
-			CHVG.push(this.chv());
-			++_CurrentPlayer;
-			return "";
-		}
-		
-		console.log("You got a card! It is still your turn");
-		CHVG.push(this.chv());
-		//sleep(6000);
-		return "";
-	}
-	else if(ActionS === "stay"){
-		console.log("No card has been obtained");
-		//sleep(6000);
-		CHVG.push(this.chv());
-		++_CurrentPlayer;
-		return "";
-		
-	}
-}
-engine.prototype.chv = function(){
-	//1-9 is = value + 1
-	var CurrentHand = this.ch();
-	var result = 0;
-	for(i=0; i<CurrentHand.length; ++i){
-		var CurrentCard = CurrentHand[i]%13;
-		if(CurrentCard===0){
-			result +=11;	
-		}
-		else if(CurrentCard>0 && CurrentCard<10){
-			result +=CurrentCard+1;	
-		}
-		else{
-			result +=10;
-		}
-	
-	}
-	
-	return result;
-}
-engine.prototype.cph = function(){
-	return _prettyHand(this.ch());
-}
+var _prettyHand = function(array) {
+        var result = [];
+
+        for (var i = 0; i < array.length; i++) {
+            result.push(_prettyCard(array[i]));
+        }
+        return result.join(", ");
+    }
+    /**************************************************************************************/
+    // pubic routines
+
 /**************************************************************************************/
-// module suffix
+engine.prototype.init = function(PlayerAmount) {
+
+
+
+    for (var i = 0; i < 52; i++) {
+        _deck.push(i);
+    }
+
+    _shuffleArray(_deck);
+
+    for (var i = 0; i < PlayerAmount; i++) {
+        _HandArray.push(_newHand(_deck));
+
+    }
+    _PlayerCount = PlayerAmount;
+    console.log(_HandArray);
+};
+
+engine.prototype.cp = function() {
+    return _CurrentPlayer;
+}
+engine.prototype.ch = function() {
+    return _HandArray[_CurrentPlayer];
+}
+engine.prototype.done = function() {
+    return _CurrentPlayer === _PlayerCount;
+}
+engine.prototype.action = function(ActionS, WCHV, CHVG) {
+    if (ActionS === "won") {
+        console.log("YOU GOT " + this.chv() + "! YOU WON THE GAME!");
+        //sleep(6000);
+        WCHV.push("Player " + this.cp() + ": got 21!");
+        CHVG.push(this.chv());
+        ++_CurrentPlayer;
+        return "";
+    }
+    if (ActionS === "hit") {
+        var card = _topCard(_deck);
+        console.log("you got a " + _prettyCard(card));
+        this.ch().push(card);
+        if (this.chv() === 21) {
+            console.log("YOU GOT " + this.chv() + "! YOU WON THE GAME!");
+            WCHV.push("Player " + this.cp() + ": got 21!");
+            //sleep(6000);
+            CHVG.push(this.chv());
+            ++_CurrentPlayer;
+            return "";
+        }
+        if (this.chv() > 21) {
+            console.log("You busted! Turn over...");
+            //sleep(6000);
+            CHVG.push(this.chv());
+            ++_CurrentPlayer;
+            return "";
+        }
+
+        console.log("You got a card! It is still your turn");
+        CHVG.push(this.chv());
+        //sleep(6000);
+        return "";
+    } else if (ActionS === "stay") {
+        console.log("No card has been obtained");
+        //sleep(6000);
+        CHVG.push(this.chv());
+        ++_CurrentPlayer;
+        return "";
+
+    }
+}
+engine.prototype.chv = function() {
+    //1-9 is = value + 1
+    var CurrentHand = this.ch();
+    var result = 0;
+    for (i = 0; i < CurrentHand.length; ++i) {
+        var CurrentCard = CurrentHand[i] % 13;
+        if (CurrentCard === 0) {
+            result += 11;
+        } else if (CurrentCard > 0 && CurrentCard < 10) {
+            result += CurrentCard + 1;
+        } else {
+            result += 10;
+        }
+
+    }
+
+    return result;
+}
+engine.prototype.cph = function() {
+        return _prettyHand(this.ch());
+    }
+    /**************************************************************************************/
+    // module suffix
 module.exports = new engine();
 
 /**************************************************************************************/
