@@ -124,10 +124,11 @@ engine.prototype.ch = function(){
 engine.prototype.done = function(){
 	return _CurrentPlayer===_PlayerCount;
 }
-engine.prototype.action = function(ActionS){
+engine.prototype.action = function(ActionS, CHVG){
 	if(ActionS === "won"){
 			console.log("YOU GOT "+this.chv()+"! YOU WON THE GAME!");
 			//sleep(6000);
+			CHVG.push(this.chv());
 			++_CurrentPlayer;
 			return "";
 		}
@@ -138,23 +139,27 @@ engine.prototype.action = function(ActionS){
 		if(this.chv()===21){
 			console.log("YOU GOT "+this.chv()+"! YOU WON THE GAME!");
 			//sleep(6000);
+			CHVG.push(this.chv());
 			++_CurrentPlayer;
 			return "";
 			}
 		if(this.chv()>21){
 			console.log("You busted! Turn over...");
 			//sleep(6000);
+			CHVG.push(this.chv());
 			++_CurrentPlayer;
 			return "";
 		}
 		
 		console.log("You got a card! It is still your turn");
+		CHVG.push(this.chv());
 		//sleep(6000);
 		return "";
 	}
 	else if(ActionS === "stay"){
 		console.log("No card has been obtained");
 		//sleep(6000);
+		CHVG.push(this.chv());
 		++_CurrentPlayer;
 		return "";
 		

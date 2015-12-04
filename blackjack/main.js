@@ -139,22 +139,22 @@ while (!engine.done()) {
     sleep(500);
     console.log("Their hand value is " + engine.chv());
     sleep(500);
-    CHVFA = engine.chv();
+    
     if(CHVFA === 21){
     	WinnerArray.push("Player "+engine.cp()+": got 21!");
     }
     var Choice = PlayerArray[engine.cp()].PlayerChoice(engine.chv(), CHVArray);
     sleep(500);
-    var outcome = engine.action(Choice);
+    var outcome = engine.action(Choice, CHVArray);
     console.log(outcome);
 
 
-    console.log("CHVFA: " + CHVFA);
-    CHVArray.push(CHVFA);
+    var last_score = CHVArray[CHVArray.length - 1];
+    console.log("CHV: " + last_score);
 }
 
 
 console.log(DisplayPlayerArray);
 console.log("The game has ended!");
-//console.log(CHVArray);
+console.log(CHVArray);
 console.log(WinnerArray);
