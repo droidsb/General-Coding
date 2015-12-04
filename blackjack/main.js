@@ -38,6 +38,14 @@ function sleep(miliseconds) {
         }
     }
 }
+var IsOdd = function(num) { 
+if(num % 2===1){
+	return "odd";
+}
+if(num % 2===0){
+	return "even";
+}
+}
 /***************************************************************************************/
 //choices!
 /***************************************************************************************/
@@ -45,18 +53,29 @@ function sleep(miliseconds) {
 if (FastRound === false) {
     var FastORSlow = readline.question("For a fast round press f, for a normal round press n: ");
 
-    var HMHumans = readline.question("How many human players do you want? type your number of players 0-5: ");
-    for (i = 0; i < Number(HMHumans); i++) {
-        PlayerArray.push(HumanPlayer);
-        DisplayPlayerArray.push("HumanPlayer");
+    var HMHumans = readline.question("How many human players do you want? type your number of players 0-8: ");
+    HMHumans=Number(HMHumans);
+    if(Number(HMHumans)>8){
+    	console.log("ERROR: Exceeded maximum player limit!");
     }
-    if (HMHumans < 5 && HMHumans > 0) {
+    if (HMHumans < 8 && HMHumans > 1) {
         var AIYN = readline.question("Would you like AI in the game? yes or no: ");
     }
-    if (AIYN === "yes" || HMHumans <= 0) {
+    if (AIYN === "yes" || HMHumans <= 1) {
 
-        var AIAmount = readline.question("please type the amount of AI you would like in the round 1-5: ");
-        var HardOREasy = readline.question("For an normal round press n, for a hard round press h, for both type both(if it is an odd number of players it will be round up): ");
+        var AIAmount = readline.question("please type the amount of AI you would like in the round 1-8: ");
+        AIAmount=Number(AIAmount);
+        if(Number(AIAmount)>8){
+    		console.log("ERROR: Exceeded maximum AI limit!");
+    	}
+    	if(Number(AIAmount)<2 && Number(HMHumans)<1){
+    		console.log("ERROR: Can not have less than 2 AI if there are no players!");
+    	}
+    	if(Number(AIAmount)<1 && Number(HMHumans)<2){
+    		console.log("ERROR: Can not have less than 1 AI if there is only 1 player!");
+    	}
+    	
+        var HardOREasy = readline.question("For an normal round press n, for a hard round press h, for both type both: ");
         var AICountV = AIAmount;
         if(HardOREasy === "both"){
         	BothD=true;
@@ -94,6 +113,11 @@ if (FastRound === false) {
             }
 
         }
+        
+        for (i = 0; i < Number(HMHumans); i++) {
+        PlayerArray.push(HumanPlayer);
+        DisplayPlayerArray.push("HumanPlayer");
+    }
 
         if (HardOREasy === "h" || HardOREasy === "both") {
         if(BothD===true){
@@ -126,6 +150,10 @@ if (FastRound === false) {
         FastRound = false;
     }
 }
+if(IsOdd(AIAmount)==="odd" && AIAmount>1){
+    		PlayerArray.pop();
+    		DisplayPlayerArray.pop();
+    	}
 /***************************************************************************************/
 //main game part
 /***************************************************************************************/
