@@ -124,10 +124,11 @@ engine.prototype.ch = function(){
 engine.prototype.done = function(){
 	return _CurrentPlayer===_PlayerCount;
 }
-engine.prototype.action = function(ActionS, CHVG){
+engine.prototype.action = function(ActionS, WCHV, CHVG){
 	if(ActionS === "won"){
 			console.log("YOU GOT "+this.chv()+"! YOU WON THE GAME!");
 			//sleep(6000);
+			WCHV.push("Player "+this.cp()+": got 21!");
 			CHVG.push(this.chv());
 			++_CurrentPlayer;
 			return "";
@@ -138,6 +139,7 @@ engine.prototype.action = function(ActionS, CHVG){
 		this.ch().push(card);
 		if(this.chv()===21){
 			console.log("YOU GOT "+this.chv()+"! YOU WON THE GAME!");
+			WCHV.push("Player "+this.cp()+": got 21!");
 			//sleep(6000);
 			CHVG.push(this.chv());
 			++_CurrentPlayer;

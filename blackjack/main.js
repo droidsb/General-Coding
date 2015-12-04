@@ -140,12 +140,10 @@ while (!engine.done()) {
     console.log("Their hand value is " + engine.chv());
     sleep(500);
     
-    if(CHVFA === 21){
-    	WinnerArray.push("Player "+engine.cp()+": got 21!");
-    }
+    
     var Choice = PlayerArray[engine.cp()].PlayerChoice(engine.chv(), CHVArray);
     sleep(500);
-    var outcome = engine.action(Choice, CHVArray);
+    var outcome = engine.action(Choice, WinnerArray, CHVArray);
     console.log(outcome);
 
 

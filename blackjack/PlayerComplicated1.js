@@ -12,7 +12,7 @@ var HTW = true;
 if(CHV===21){
 		return "won";
 	}
-if(HES>CHV && HTW===true){
+if(HES>CHV && HTW===true && HES <21 && CHV<20){
  	return "hit";
 }	
 
