@@ -124,6 +124,7 @@ engine.prototype.done = function() {
     return _CurrentPlayer === _PlayerCount;
 }
 engine.prototype.action = function(ActionS, WCHV, CHVG) {
+	CHVG.push(this.chv());
     if (ActionS === "won") {
         console.log("YOU GOT " + this.chv() + "! YOU WON THE GAME!");
         //sleep(6000);
@@ -159,7 +160,7 @@ engine.prototype.action = function(ActionS, WCHV, CHVG) {
     } else if (ActionS === "stay") {
         console.log("No card has been obtained");
         //sleep(6000);
-        CHVG.push(this.chv());
+        
         ++_CurrentPlayer;
         return "";
 
