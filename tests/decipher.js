@@ -1,4 +1,12 @@
-var decipher = function(key, scrambledword){
+/**************************************************************************************/
+
+// module prefix
+var decipher = function(){};
+
+/**************************************************************************************/
+
+
+decipher.prototype.decipher = function(key, scrambledword){
 var todecipher = key;
 var alpha = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"," "];
 var firstmessage = scrambledword;
@@ -30,8 +38,16 @@ word=word+alpha[originalnum[i]];
 
 }
 
-console.log(finalmessage);
-console.log(word);
+//console.log(finalmessage);
+//console.log(word);
+return word;
+
 };
 
-decipher([ -3, -3, -7, 14, -2, 27, -12, 6, -2, -3, 12 ], "ebezm kupip");
+
+
+/**************************************************************************************/
+// module suffix
+module.exports = new decipher();
+
+/**************************************************************************************/

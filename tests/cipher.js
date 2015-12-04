@@ -1,6 +1,11 @@
+/**************************************************************************************/
 
+// module prefix
+var cipher = function(){};
 
-var scramble = function(word){
+/**************************************************************************************/
+
+cipher.prototype.cipher = function(word){
 var str = word;
 var CLetter = [];
 var word = [];
@@ -51,11 +56,19 @@ var numkey = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,
 	
 	}
 	var finalkeyjoin = finalkey.join(" ");
-	console.log(finalkeyjoin);
+	//console.log(finalkeyjoin);
 	//console.log(joinedkeynum);
-	console.log(finalw);
-	   console.log(finalkey); 
+	//console.log(finalw);
+	var returns = [finalw, finalkey]
+	return returns;
 };
-scramble("hello world");
 
-    
+	   //console.log(finalkey); 
+
+
+
+/**************************************************************************************/
+// module suffix
+module.exports = new cipher();
+
+/**************************************************************************************/    
