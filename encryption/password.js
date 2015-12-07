@@ -53,7 +53,9 @@ console.log("username id:"+TempUserHold.indexOf(username));
 console.log(key[person]);
 console.log(password[person]);
 while(decipher.decipher(key[person],password[person]) !=password2test){
-	var password2test = readline.question("Password: ");
+	var password2test = readline.question("Password: ", {
+  hideEchoBack: true 
+});
     if (decipher.decipher(key[person],password[person])!=password2test) {
         console.log("Incorrect password. try again.")
 		
@@ -72,7 +74,9 @@ if(NewOROld==="new"){
 var usernameNew = readline.question("Username: ");
 TempUserHold.push(usernameNew);
 
-var passwordNew = readline.question("Password: ");
+var passwordNew = readline.question("Password: ", {
+  hideEchoBack: true 
+});
 
 TempInfoHold=cipher.cipher(passwordNew);
 //console.log(TempInfoHold);
