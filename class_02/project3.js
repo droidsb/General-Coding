@@ -19,8 +19,20 @@ function slope_intercept(x1, y1, x2, y2){
 function slope(x1,y1,x2,y2){
 	var xv=x2-x1;
 	var yv=y2-y1;
+if(xv === 0){
+	console.log("Slope is undefined");
+	return;
+}
+if(yv/xv === 0){
+	console.log("Zero Slope");
+	return;
+}
+
+if(yv/xv !=0){
 	console.log("Slope="+yv/xv);
 	console.log("Slope fraction="+yv+"/"+xv);
+	return;
+}
 
 
 };
