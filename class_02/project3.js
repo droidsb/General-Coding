@@ -35,8 +35,18 @@ if(yv/xv !=0){
 }
 
 
+
 };
-var SorSI = readline.question("Slope intercept or just slope? ");
+function midpoint_line(x1,y1,x2,y2){
+	var xv=(x1+x2)/2;
+	var yv=(y1+y2)/2;
+
+	
+	console.log("Line Midpoint=("+(xv)+", "+(yv)+")");
+	
+	return;
+	};
+var SorSI = readline.question("Slope intercept, slope, or line midpoint? ");
 if(SorSI==="slope intercept" || SorSI==="si" || SorSI==="Slope intercept" || SorSI==="Slope Intercept" || SorSI==="SI"){
              //x1,y1,x2,y2
 var x1 = readline.question("Type the x1: ");
@@ -44,7 +54,7 @@ var y1 = readline.question("Type the y1: ");
 var x2 = readline.question("Type the x2: ");
 var y2 = readline.question("Type the y2: ");
  //enter the x1,y1 V V V V x2,y2
-	slope_intercept(x1,y1,x2,y2);
+	slope_intercept(Number(x1),Number(y1),Number(x2),Number(y2));
 	
 //example (1,2),(3,4)
 return;
@@ -56,9 +66,19 @@ var y1 = readline.question("Type the y1: ");
 var x2 = readline.question("Type the x2: ");
 var y2 = readline.question("Type the y2: ");
  //enter the x1,y1 V V V V x2,y2
-	slope(x1,y1,x2,y2);
+	slope(Number(x1),Number(y1),Number(x2),Number(y2));
 	return;
 	}
+if(SorSI==="line midpoint" || SorSI==="lm" || SorSI==="Line Midpoint" || SorSI==="Line midpoint" || SorSI==="LM"){
+var x1 = readline.question("Type the x1: ");
+var y1 = readline.question("Type the y1: ");
+var x2 = readline.question("Type the x2: ");
+var y2 = readline.question("Type the y2: ");
+ //enter the x1,y1 V V V V x2,y2
+	midpoint_line(Number(x1),Number(y1),Number(x2),Number(y2));
+	return;
+
+}
 	
 	else{
 		console.log("No such program or incorrect spelling");
