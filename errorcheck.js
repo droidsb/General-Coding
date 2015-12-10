@@ -19,69 +19,69 @@ var playerArray = [DummyPlayer, HitPlayer, StayPlayer, ComplicatedPlayer1, Compl
 
 
 
-var testProgram = function(fName){
+var testProgram = function(fName) {
 
-fName
+    fName
 
-if(fName===DummyPlayer.PlayerChoice){
-	correctVariable="hit, stay, or won";
-	program="playerdummy.js";
-	blackjacktest=true;
-}
-if(fName===HitPlayer.PlayerChoice){
-	correctVariable="hit, stay, or won";
-	program="playerhit.js";
-	blackjacktest=true;
-}
-if(fName===StayPlayer.PlayerChoice()){
-	correctVariable="hit, stay, or won";
-	program="playerstay.js";
-	blackjacktest=true;
-}
-if(fName===ComplicatedPlayer1.PlayerChoice){
-	correctVariable="hit, stay, or won";
-	
-	program="ComplicatedPlayer1.js";
-	blackjacktest=true;
-}
-if(fName===ComplicatedPlayer2.PlayerChoice){
-	correctVariable="hit, stay, or won";
-	
-	program="ComplicatedPlayer2.js";
-	blackjacktest=true;
-}
+    if (fName === DummyPlayer.PlayerChoice) {
+        correctVariable = "hit, stay, or won";
+        program = "playerdummy.js";
+        blackjacktest = true;
+    }
+    if (fName === HitPlayer.PlayerChoice) {
+        correctVariable = "hit, stay, or won";
+        program = "playerhit.js";
+        blackjacktest = true;
+    }
+    if (fName === StayPlayer.PlayerChoice()) {
+        correctVariable = "hit, stay, or won";
+        program = "playerstay.js";
+        blackjacktest = true;
+    }
+    if (fName === ComplicatedPlayer1.PlayerChoice) {
+        correctVariable = "hit, stay, or won";
 
-/*if(fName===HumanPlayer.Choice){
-	correctVariable="hit or stay";
-	program="playerhuman.js";
-	blackjacktest=true;
-}*/
+        program = "ComplicatedPlayer1.js";
+        blackjacktest = true;
+    }
+    if (fName === ComplicatedPlayer2.PlayerChoice) {
+        correctVariable = "hit, stay, or won";
+
+        program = "ComplicatedPlayer2.js";
+        blackjacktest = true;
+    }
+
+    /*if(fName===HumanPlayer.Choice){
+    	correctVariable="hit or stay";
+    	program="playerhuman.js";
+    	blackjacktest=true;
+    }*/
 
 
-if(blackjacktest===false){
-	if(fName !=correctVariable){
-		error=true;
-		incorrectVariable = fName;
-	}
-	return;
+    if (blackjacktest === false) {
+        if (fName != correctVariable) {
+            error = true;
+            incorrectVariable = fName;
+        }
+        return;
+    }
+    if (blackjacktest === true) {
+        if (fName != "hit" && fName != "stay" && fName != "won") {
+            error = true;
+            incorrectVariable = fName;
+            return;
+        }
+    }
 }
-if(blackjacktest===true){
-	if(fName !="hit" && fName !="stay" && fName !="won"){
-		error=true;
-		incorrectVariable = fName;
-		return;
-	}
-}	
+var notify = function() {
+
+
+    if (error === true) {
+        console.log("ERROR: Program " + program + " output " + incorrectVariable + ", the correct variable is: " + correctVariable);
+        error = false;
+    }
 }
-var notify = function(){
-	
-		
-	if(error===true){
-		console.log("ERROR: Program "+program+" output "+incorrectVariable+", the correct variable is: "+correctVariable);
-		error=false;
-	}
-}
-for(i=0; i<playerArray.length; i++){
-testProgram(playerArray[i].PlayerChoice());
-notify();
+for (i = 0; i < playerArray.length; i++) {
+    testProgram(playerArray[i].PlayerChoice());
+    notify();
 }
