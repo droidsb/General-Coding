@@ -7,7 +7,7 @@ var FastRound = false;
 var CHVFA = 0;
 
 
-
+var ErrorCheck = require('./blackjackcheck.js');
 var readline = require('readline-sync');
 var engine = require('./engine');
 var DummyPlayer = require('./player');
@@ -17,6 +17,7 @@ var ComplicatedPlayer1 = require('./PlayerComplicated1');
 var ComplicatedPlayer2 = require('./PlayerComplicated2');
 var HumanPlayer = require('./playerhuman');
 var CHVArray = [];
+var fail = false;
 //var HardRoundArray = [ComplicatedPlayer1, ComplicatedPlayer2, ComplicatedPlayer1, ComplicatedPlayer1];
 //var PlayersUsable = [ComplicatedPlayer1, HitPlayer, DummyPlayer, ComplicatedPlayer2, StayPlayer, HumanPlayer];
 var ComChoice = 0;
@@ -170,7 +171,7 @@ if (IsOdd(AIAmount) === "odd" && AIAmount > 1) {
 //main game part
 /***************************************************************************************/
 engine.init(PlayerArray.length);
-while (!engine.done()) {
+while (!engine.done() && fail===false) {
 
     console.log('');
     console.log("It is now the turn of player " + engine.cp());
@@ -185,8 +186,12 @@ while (!engine.done()) {
     sleep(500);
     var outcome = engine.action(Choice, WinnerArray, CHVArray);
     console.log(outcome);
-
-
+	ErrorCheck.check(Choice, WinnerArray, CHVArray);
+	//ErrorCheck.notify();
+	if(ErrorCheck.check()==="failed"){
+	fail=true;
+	
+	}
     var last_score = CHVArray[CHVArray.length - 1];
     console.log("CHV: " + last_score);
 }

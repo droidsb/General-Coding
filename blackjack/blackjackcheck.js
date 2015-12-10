@@ -1,10 +1,18 @@
+
+/**************************************************************************************/
+
+// module prefix
+var checkError = function(){};
+
+/**************************************************************************************/
+
 var engine = require('./engine');
-var DummyPlayer = require('./blackjack/player');
-var HitPlayer = require('./blackjack/playerhit');
-var StayPlayer = require('./blackjack/playerstay');
-var ComplicatedPlayer1 = require('./blackjack/PlayerComplicated1');
-var ComplicatedPlayer2 = require('./blackjack/PlayerComplicated2');
-var HumanPlayer = require('./blackjack/playerhuman');
+var DummyPlayer = require('./player');
+var HitPlayer = require('./playerhit');
+var StayPlayer = require('./playerstay');
+var ComplicatedPlayer1 = require('./PlayerComplicated1');
+var ComplicatedPlayer2 = require('./PlayerComplicated2');
+var HumanPlayer = require('./playerhuman');
 
 var error = false;
 var program = "";
@@ -14,9 +22,9 @@ var correctVariable2 = "";
 var incorrectVariable = "";
 var blackjacktest = false;
 
-var playerArray = [DummyPlayer, HitPlayer, StayPlayer, ComplicatedPlayer1, ComplicatedPlayer2];
 
 
+checkError.prototype.check = function(Choice, WinnerArray, CHVArray){
 
 
 var testProgram = function(fName) {
@@ -69,21 +77,30 @@ var testProgram = function(fName) {
         if (fName != correctVariable) {
             error = true;
             incorrectVariable = fName;
+            
         }
-        return;
+       return; 
     }
     
 }
-var notify = function() {
+
+//checkError.prototype.notify = function(){
 
 
-    if (error === true && program !="") {
+    if (error === true && program !="" && incorrectVariable != undefined) {
         console.log("ERROR: Program " + program + " output " + incorrectVariable + ", the correct variable is: " + correctVariable);
         error = false;
         return "failed";
+        
     }
-}
-for (i = 0; i < playerArray.length; i++) {
-    testProgram(playerArray[i].PlayerChoice(0,[0]));
-    notify();
-}
+//}
+
+    testProgram(Choice, WinnerArray, CHVArray);
+    
+}   
+    
+/**************************************************************************************/
+// module suffix
+module.exports = new checkError();
+
+/**************************************************************************************/
