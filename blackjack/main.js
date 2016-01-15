@@ -54,41 +54,67 @@ var IsOdd = function(num) {
 if (FastRound === false) {
     var FastORSlow = readline.question("For a fast round press f, for a normal round press n: ");
     console.log("*******************************************************************************");
-    var HMHumans = readline.question("How many human players do you want? type your number of players 0-8: ");
+    var HMHumans2 = readline.question("How many human players do you want? type your number of players 0-8: ");
      console.log("*******************************************************************************");
-    HMHumans = Number(HMHumans);
-    if (Number(HMHumans) > 8) {
-        console.log("ERROR: Exceeded maximum player limit!");
+    HMHumans=HMHumans2;
+    if (HMHumans2 ==="override") {
+        console.log("override mode activated");
+        HMHumans = readline.question("How many human players do you want? type your number of players: ");
          console.log("*******************************************************************************");
     }
-    if (HMHumans < 8 && HMHumans > 1) {
+    
+    if (Number(HMHumans) > 8 && HMHumans2 != "override") {
+        console.log("ERROR: Exceeded maximum player limit!");
+         console.log("*******************************************************************************");
+         return;
+    }
+     
+
+    if (Number(HMHumans) < 8 && Number(HMHumans) > 1 || HMHumans2 ==="override" && Number(HMHumans) > 1) {
         var AIYN = readline.question("Would you like AI in the game? yes or no: ");
          console.log("*******************************************************************************");
     }
 
-    if (AIYN === "yes" || HMHumans <= 1) {
-
-        var AIAmount = readline.question("please type the amount of AI you would like in the round 1-8: ");
+    if (AIYN === "yes" || Number(HMHumans) <= 1 || HMHumans2 ==="override") {
+		if(HMHumans2 !="override"){
+        	var AIAmount = readline.question("please type the amount of AI you would like in the round 1-8: ");
+        
+        	}
+        if(HMHumans2 ==="override"){
+        	var AIAmount = readline.question("please type the amount of AI you would like in the round: ");
+        
+        	}
          console.log("*******************************************************************************");
         AIAmount = Number(AIAmount);
-        if (Number(AIAmount) > 8) {
+        if (Number(AIAmount) > 8 && HMHumans2 ==="override") {
+            console.log("overridden");
+            
+             console.log("*******************************************************************************");
+            
+        }
+        
+    
+        else if(HMHumans !="override" && Number(AIAmount) > 8) {
             console.log("ERROR: Exceeded maximum AI limit!");
              console.log("*******************************************************************************");
             return;
         }
-        if (Number(AIAmount) < 2 && Number(HMHumans) < 1) {
+        else if(Number(AIAmount) < 2 && Number(HMHumans) < 1) {
             console.log("ERROR: Can not have less than 2 AI if there are no players!");
              console.log("*******************************************************************************");
             return;
         }
-        if (Number(AIAmount) < 1 && Number(HMHumans) < 2) {
+        else if(Number(AIAmount) < 1 && Number(HMHumans) < 2) {
             console.log("ERROR: Can not have less than 1 AI if there is only 1 player!");
              console.log("*******************************************************************************");
             return;
         }
 
+
+	
         var HardOREasy = readline.question("For an normal round press n, for a hard round press h, for both type both: ");
          console.log("*******************************************************************************");
+         
         var AICountV = AIAmount;
         if (HardOREasy === "both") {
             BothD = true;
@@ -96,7 +122,10 @@ if (FastRound === false) {
         if (HardOREasy === "n" || HardOREasy === "both") {
             if (BothD === true) {
                 AICountV = Number(AIAmount / 2);
-            }
+      	}
+      	}
+      	
+    }
 
             /*while (y < Number(AIAmount)) {
                 var AIEasyChoice = Math.ceil(Math.random() * 3);
@@ -154,8 +183,8 @@ if (FastRound === false) {
                 PlayerArray.push(ComChoice);
                 DisplayPlayerArray.push(DComChoice);
 
-            }
-        }
+            
+        
     }
     if (FastORSlow === "f") {
         FastRound = true;

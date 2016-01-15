@@ -1,0 +1,4 @@
+var readline=require('readline-sync');
+
+var username = readline.question("Username: );
+var password = readline.question("Password: );
