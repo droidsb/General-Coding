@@ -92,7 +92,7 @@ var learner = function(){
 			console.log(h + ":" + m);
 			answerKnown=true;
 		}
-		if(Q==="how long have you existed?" || Q==="how long have you existed" || Q==="How long have you existed?" || Q==="How long have you existed"){
+		if(Q==="how long have you existed?" || Q==="how long have you existed" || Q==="How long have you existed?" || Q==="How long have you existed" || Q==="how old are you" || Q==="How old are you?" || Q==="how old are you?"){
 			var d1 = new Date(dString);
 			var d2 = new Date();
 			console.log();
@@ -114,7 +114,7 @@ var learner = function(){
 
 			answerKnown=true;
 		}
-		if(Q==="how much information do you have stored?" || Q==="how much information do you have stored" || Q==="How much information do you have stored?" || Q==="How much information do you have stored"){
+		if(Q==="how much information do you have stored?" || Q==="how much information do you have stored" || Q==="How much information do you have stored?" || Q==="How much information do you have stored" || Q==="how much information do you have?" || Q==="how much information do you have" || Q==="How much information do you have?"){
 			console.log();
 			console.log("I have "+JSON.parse(questions.length+4)+" questions and answers stored.");
 			console.log();
@@ -162,8 +162,8 @@ var learner = function(){
 			QA=0;
 			check=0;
 			answerKnown=false;
-			fs.writeFileSync('./learnQsave.js', JSON.stringify(questions));	
-			fs.writeFileSync('./learnAsave.js', JSON.stringify(answers));
+			fs.writeFileSync('/Users/SethBaird/Desktop/learn.js_saves/learnQsave.js', JSON.stringify(questions));	
+			fs.writeFileSync('/Users/SethBaird/Desktop/learn.js_saves/learnAsave.js', JSON.stringify(answers));
 			
 		}
 		
