@@ -1,7 +1,15 @@
 var readline = require('readline-sync');
+var fs = require('fs');
+var saveQim = fs.readFileSync('/Users/SethBaird/Desktop/learn.js_saves/learnQsave.js', "utf8");
+var saveAim = fs.readFileSync('/Users/SethBaird/Desktop/learn.js_saves/learnAsave.js', "utf8");
+var saveQ = JSON.parse(saveQim);
+var saveA = JSON.parse(saveAim);
 var  math = require('mathjs');
-var questions =[];
-var answers =[];
+var questions = saveQ;
+var answers = saveA;
+
+
+
 var QA=0;
 var i=0;
 var check=0;
@@ -55,9 +63,9 @@ var DateDiff = {
 }
  
 var dString = "Feb, 17, 2016";
+var UntilChrist = "Dec, 25, 2016";
  
-var d1 = new Date(dString);
-var d2 = new Date();
+
 
 
 
@@ -85,6 +93,8 @@ var learner = function(){
 			answerKnown=true;
 		}
 		if(Q==="how long have you existed?" || Q==="how long have you existed" || Q==="How long have you existed?" || Q==="How long have you existed"){
+			var d1 = new Date(dString);
+			var d2 = new Date();
 			console.log();
 			console.log("I have existed for");
 			console.log(DateDiff.inDays(d1, d2)+" days, "+DateDiff.inWeeks(d1, d2)+" weeks, and "+DateDiff.inMonths(d1, d2)+" months, "+DateDiff.inYears(d1, d2)+" years.");
@@ -93,8 +103,31 @@ var learner = function(){
 
 			answerKnown=true;
 		}
+		if(Q==="how many days till christmas?" || Q==="How many days till Christmas?" || Q==="how many days till christmas" || Q==="How many days till christmas"){
+			var d1 = new Date(UntilChrist);
+			var d2 = new Date();
+			console.log();
+			console.log("There are");
+			console.log(DateDiff.inDays(d1, d2)*-1+" days till Christmas.");
+			
+			console.log();
+
+			answerKnown=true;
+		}
+		if(Q==="how much information do you have stored?" || Q==="how much information do you have stored" || Q==="How much information do you have stored?" || Q==="How much information do you have stored"){
+			console.log();
+			console.log("I have "+JSON.parse(questions.length+4)+" questions and answers stored.");
+			console.log();
+			answerKnown=true;
+		}
+		if(checkQ==="math"){
+		console.log();
+		console.log(math.eval(Q));
+		console.log();
+		answerKnown=true;
+		}
 		while(check<answers.length){
-			if(Q===questions[check]){
+			if(Q===questions[check] && answerKnown===false){
 				console.log();
 				console.log(answers[check]);
 				console.log();
@@ -108,12 +141,7 @@ var learner = function(){
 			check++;
 		}
 		
-		if(checkQ==="math"){
-		console.log();
-		console.log(math.eval(Q));
-		console.log();
-		answerKnown=true;
-		}
+		
 		if(answerKnown===false){
 			console.log("what does it equal?"); 
 			var A = readline.question("Answer here: ");
@@ -127,14 +155,15 @@ var learner = function(){
 			}
 			while(i<answers.length){
 
-			console.log(questions[i]);
-			console.log(answers[check]);
+			
 			i++
 			}
 			A=0;
 			QA=0;
 			check=0;
 			answerKnown=false;
+			fs.writeFileSync('./learnQsave.js', JSON.stringify(questions));	
+			fs.writeFileSync('./learnAsave.js', JSON.stringify(answers));
 			
 		}
 		
@@ -198,6 +227,9 @@ var learner2 = function(){
 		QA=0;
 		check=0;
 		answerKnown=false;
+		
+		fs.writeFileSync('/Users/SethBaird/Desktop/learn.js_saves/learnQsave.js', questions);	
+		fs.writeFileSync('/Users/SethBaird/Desktop/learn.js_saves/learnAsave.js', answers);
 		}
 		while(i<answers.length){
 	
