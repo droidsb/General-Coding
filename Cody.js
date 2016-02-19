@@ -103,7 +103,7 @@ var learner = function(){
 
 			answerKnown=true;
 		}
-		if(Q==="how many days till christmas?" || Q==="How many days till Christmas?" || Q==="how many days till christmas" || Q==="How many days till christmas"){
+		if(Q==="how many days until christmas?" || Q==="How many days until Christmas?" || Q==="how many days until christmas" || Q==="How many days until christmas" || Q==="How many more days until Christmas?"){
 			var d1 = new Date(UntilChrist);
 			var d2 = new Date();
 			console.log();
