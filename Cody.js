@@ -80,7 +80,7 @@ var learner = function(){
 		m = checkTime(m);
 		s = checkTime(s);
 		console.log("Type 'math' for math equations below otherwise type word questions below");
-		var Q = readline.question("Whats is the answer to: ");
+		var Q = readline.question("What is the answer to: ");
 		var checkQ=Q;
 		if(Q==="math"){
 			var Q = readline.question("Type in a math equation: ");
