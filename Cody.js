@@ -1,7 +1,7 @@
 var readline = require('readline-sync');
 var fs = require('fs');
-var saveQim = fs.readFileSync('/Users/SethBaird/Desktop/learn.js_saves/learnQsave.js', "utf8");
-var saveAim = fs.readFileSync('/Users/SethBaird/Desktop/learn.js_saves/learnAsave.js', "utf8");
+var saveQim = fs.readFileSync('./learn.js_saves/learnQsave.js', "utf8");
+var saveAim = fs.readFileSync('./learn.js_saves/learnAsave.js', "utf8");
 var saveQ = JSON.parse(saveQim);
 var saveA = JSON.parse(saveAim);
 var  math = require('mathjs');
@@ -162,8 +162,8 @@ var learner = function(){
 			QA=0;
 			check=0;
 			answerKnown=false;
-			fs.writeFileSync('/Users/SethBaird/Desktop/learn.js_saves/learnQsave.js', JSON.stringify(questions));	
-			fs.writeFileSync('/Users/SethBaird/Desktop/learn.js_saves/learnAsave.js', JSON.stringify(answers));
+			fs.writeFileSync('./learn.js_saves/learnQsave.js', JSON.stringify(questions));	
+			fs.writeFileSync('./learn.js_saves/learnAsave.js', JSON.stringify(answers));
 			
 		}
 		
