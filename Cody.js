@@ -97,7 +97,7 @@ var learner = function(){
 			var d2 = new Date();
 			console.log();
 			console.log("I have existed for");
-			console.log(DateDiff.inDays(d1, d2)+" days, "+DateDiff.inWeeks(d1, d2)+" weeks, and "+DateDiff.inMonths(d1, d2)+" months, "+DateDiff.inYears(d1, d2)+" years.");
+			console.log(DateDiff.inDays(d1, d2)+" days, "+DateDiff.inWeeks(d1, d2)+" weeks, "+DateDiff.inMonths(d1, d2)+" months, and "+DateDiff.inYears(d1, d2)+" years.");
 			console.log("I was created on "+dString);
 			console.log();
 
@@ -108,7 +108,7 @@ var learner = function(){
 			var d2 = new Date();
 			console.log();
 			console.log("There are");
-			console.log(DateDiff.inDays(d1, d2)*-1+" days till Christmas.");
+			console.log(DateDiff.inDays(d1, d2)*-1+" days until Christmas.");
 			
 			console.log();
 

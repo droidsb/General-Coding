@@ -17,4 +17,4 @@ BinString="";
 	console.log(BinString);
 }
 
-Binconvert(231);
+Binconvert(184);
