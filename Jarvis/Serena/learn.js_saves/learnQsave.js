@@ -1,1 +1,0 @@
-["what is your name?","what do you do?","cd /users/sethbaird/general-coding/jarvis","thank you","how are you?","what is my favorite color?","what is my favorite drink?","hello"]
