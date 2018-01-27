@@ -13,11 +13,11 @@ var duststormAMorPM = Math.floor(Math.random() * 1) + 0
 
 var nighttemp = Math.floor(Math.random() * 45) + 15
 
-var missiondays=26;
+var missiondays=32;
 
-var crewnumber=6;
+var crewnumber=2;
 
-var sol=3;
+var sol=36;
 
 //gallons
 //crewnumber*383.33333333333
