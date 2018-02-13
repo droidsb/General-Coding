@@ -1,1 +1,0 @@
-who toucha my spahgett?
